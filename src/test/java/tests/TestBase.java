@@ -34,13 +34,16 @@ public class TestBase {
     @BeforeEach
     void setUp() {
         step("Открытие главной страницы вебсайта \"https://aliradar.com/\"", ()-> {
-            open("https://aliradar.com/");
+            open("https://aliradar.com/?&lang=ru&curr=RUB");
             sleep(5000);
-            $(byText("USD")).parent().click();
-            $(byText("Русский")).parent().click();
-            $(byText("USD")).parent().click();
-            $(byText("RUB")).parent().click();
         });
+    }
+
+    public void changeLocation() {
+        $(byText("USD")).parent().click();
+        $(byText("Русский")).click();
+        $(byText("USD")).parent().click();
+        $(byText("RUB")).click();
     }
 
     @AfterEach

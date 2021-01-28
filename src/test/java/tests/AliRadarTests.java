@@ -44,6 +44,7 @@ public class AliRadarTests extends TestBase {
         });
         step("Переход на страницу установки приложения.", ()-> {
             switchTo().window(1);
+            changeLocation();
         });
         step("Проверка отображения на странице текста \"AliRadar - помощник в покупках\".", ()-> {
             $(byText("AliRadar - помощник в покупках")).shouldBe(Condition.visible);
@@ -64,6 +65,7 @@ public class AliRadarTests extends TestBase {
         });
         step("Переход на страницу установки расширения.", ()-> {
             switchTo().window(1);
+            changeLocation();
         });
         step("Проверка отображения на странице текста \"AliRadar - помощник в покупках\".", ()-> {
             $(byText("AliRadar - помощник в покупках")).shouldBe(Condition.visible);
@@ -143,6 +145,7 @@ public class AliRadarTests extends TestBase {
         step("Переход на страницу с описанием товара.", ()-> {
             switchTo().window(1);
             sleep(5000);
+            changeLocation();
         });
         step("Проверка наличия кнопки \"Перейти в магазин\".", ()-> {
             $(byText("Перейти в магазин")).shouldBe(Condition.visible);
