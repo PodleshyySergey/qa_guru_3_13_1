@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static helper.AttachmentsHelper.*;
 import static io.qameta.allure.Allure.step;
@@ -33,8 +34,12 @@ public class TestBase {
     @BeforeEach
     void setUp() {
         step("Открытие главной страницы вебсайта \"https://aliradar.com/\"", ()-> {
-            open("https://aliradar.com/?&lang=ru&curr=RUB");
+            open("https://aliradar.com/");
             sleep(5000);
+            $(byText("USD")).parent().click();
+            $(byText("Русский")).parent().click();
+            $(byText("USD")).parent().click();
+            $(byText("RUB")).parent().click();
         });
     }
 
