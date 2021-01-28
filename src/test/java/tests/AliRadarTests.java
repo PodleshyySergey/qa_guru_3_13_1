@@ -1,8 +1,6 @@
+package tests;
+
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Step;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selectors.byName;
@@ -11,25 +9,10 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class AliRadarTests {
+public class AliRadarTests extends TestBase {
 
 //    Вакансия - https://spb.hh.ru/vacancy/41149443
 //    Сайт компании - https://aliradar.com/
-
-    @BeforeAll
-    static void setUpAll() {
-        Configuration.browser="chrome";
-        Configuration.startMaximized=true;
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
-
-    @BeforeEach
-    void setUp() {
-        step("Открытие главной страницы вебсайта \"https://aliradar.com/\"", ()-> {
-            open("https://aliradar.com/");
-            sleep(5000);
-        });
-    }
 
     @Test
     @Order(0)
