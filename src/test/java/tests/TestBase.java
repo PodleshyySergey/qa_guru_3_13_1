@@ -33,7 +33,7 @@ public class TestBase {
     @BeforeEach
     void setUp() {
         step("Открытие главной страницы вебсайта \"https://aliradar.com/\"", ()-> {
-            open("https://aliradar.com/");
+            open("https://aliradar.com/?&lang=ru&curr=RUB");
             sleep(5000);
         });
     }
