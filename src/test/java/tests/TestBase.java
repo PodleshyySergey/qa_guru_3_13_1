@@ -44,9 +44,8 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
-        if(System.getProperty("remote.browser.url") != null)
-            attachVideo();
+        attachVideo();
 
-        closeWebDriver();
+//        closeWebDriver();
     }
 }
