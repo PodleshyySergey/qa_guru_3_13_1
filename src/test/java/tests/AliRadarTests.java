@@ -39,19 +39,18 @@ public class AliRadarTests extends TestBase {
     @DisplayName("Проверка перехода на страницу установки приложения и наличия кнопки \"Установить\".")
     void testSetupApp() {
 
-        step("Обращение к кнопке \"Установить приложение\".", ()-> {
-            $(byText("Установить приложение")).click();
+        step("Обращение к кнопке \"Доступно в Google Play\".", ()-> {
+            $x("//*[@alt='Google Play badge']").parent().scrollTo().click();
         });
         step("Переход на страницу установки приложения.", ()-> {
             switchTo().window(1);
-            changeLocation();
         });
         step("Проверка отображения на странице текста \"AliRadar - помощник в покупках\".", ()-> {
-            $(byText("AliRadar - помощник в покупках")).shouldBe(Condition.visible);
+            $(byText("AliRadar — помощник в покупках")).shouldBe(Condition.visible);
         });
         step("Проверка наличия кнопки \"Установить\" и закрытие страницы.", ()-> {
             $(byText("Установить")).shouldBe(Condition.visible);
-            closeWindow();
+//            closeWindow();
         });
     }
 
@@ -65,14 +64,15 @@ public class AliRadarTests extends TestBase {
         });
         step("Переход на страницу установки расширения.", ()-> {
             switchTo().window(1);
-            changeLocation();
+
+//            changeLocation();
         });
         step("Проверка отображения на странице текста \"AliRadar - помощник в покупках\".", ()-> {
             $(byText("AliRadar - помощник в покупках")).shouldBe(Condition.visible);
         });
         step("Проверка наличия кнопки \"Установить\" и закрытие страницы.", ()-> {
             $(byText("Установить")).shouldBe(Condition.visible);
-            closeWindow();
+//            closeWindow();
         });
         
     }
@@ -145,11 +145,11 @@ public class AliRadarTests extends TestBase {
         step("Переход на страницу с описанием товара.", ()-> {
             switchTo().window(1);
             sleep(5000);
-            changeLocation();
+//            changeLocation();
         });
         step("Проверка наличия кнопки \"Перейти в магазин\".", ()-> {
             $(byText("Перейти в магазин")).shouldBe(Condition.visible);
-            closeWindow();
+//            closeWindow();
         });
 
     }
