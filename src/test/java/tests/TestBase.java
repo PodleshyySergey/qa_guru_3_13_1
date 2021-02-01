@@ -7,15 +7,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 import static helper.AttachmentsHelper.*;
 import static io.qameta.allure.Allure.step;
 
@@ -33,12 +27,6 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
 
-        WebDriver driver = getWebDriver();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("-lang=ru");
-        driver = new ChromeDriver(options);
-        setWebDriver(driver);
-
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
 
     }
@@ -46,7 +34,7 @@ public class TestBase {
     @BeforeEach
     void setUp() {
         step("Открытие главной страницы вебсайта \"https://aliradar.com/\"", ()-> {
-            open("https://aliradar.com/?&lang=ru&curr=RUB");
+            open("https://aliradar.com/");
             sleep(5000);
         });
     }
