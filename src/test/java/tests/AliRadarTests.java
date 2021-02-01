@@ -180,7 +180,7 @@ public class AliRadarTests extends TestBase {
         });
         step("Проверка наличия кнопки \"Перейти в магазин\".", ()-> {
 //            $(byText("Перейти в магазин")).shouldBe(Condition.visible);
-            $(byText("Go to store")).shouldBe(Condition.visible);
+            $(byText("Go to store")).parent().shouldBe(Condition.visible);
 //            closeWindow();
         });
 
