@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static helper.AttachmentsHelper.*;
 import static io.qameta.allure.Allure.step;
@@ -16,19 +15,16 @@ import static io.qameta.allure.Allure.step;
 public class TestBase {
     @BeforeAll
     static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(true));
+
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
         Configuration.browser="chrome";
         Configuration.startMaximized=true;
-
-        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(true));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
         Configuration.browserCapabilities = capabilities;
-
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
-
     }
 
     @BeforeEach
@@ -37,13 +33,6 @@ public class TestBase {
             open("https://aliradar.com/");
             sleep(5000);
         });
-    }
-
-    public void changeLocation() {
-        $(byText("USD")).parent().click();
-        $(byText("Русский")).click();
-        $(byText("USD")).parent().click();
-        $(byText("RUB")).click();
     }
 
     @AfterEach
