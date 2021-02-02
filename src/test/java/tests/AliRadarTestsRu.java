@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static java.lang.System.setProperty;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AliRadarTestsRu extends TestBase {

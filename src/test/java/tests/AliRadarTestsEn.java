@@ -13,7 +13,7 @@ public class AliRadarTestsEn extends TestBase {
 //    Вакансия - https://spb.hh.ru/vacancy/41149443
 //    Сайт компании - https://aliradar.com/
 
-    @Test
+//    @Test
     @Order(0)
     @DisplayName("Открытие главной страницы сайта")
     void openStartPage() {
@@ -32,7 +32,7 @@ public class AliRadarTestsEn extends TestBase {
         });
     }
 
-    @Test
+//    @Test
     @Order(1)
     @DisplayName("Проверка перехода на страницу установки приложения и наличия кнопки \"Install\".")
     void testSetupApp() {
@@ -52,7 +52,7 @@ public class AliRadarTestsEn extends TestBase {
         });
     }
 
-    @Test
+//    @Test
     @Order(2)
     @DisplayName("Проверка перехода на страницу установки расширения для браузера и наличия кнопки \"Add to Chrome\".")
     void testSetupExtension() {
@@ -73,7 +73,7 @@ public class AliRadarTestsEn extends TestBase {
         
     }
 
-    @Test
+//    @Test
     @Order(3)
     @DisplayName("Проверка сообщений валидаторов с незаполненными обязательными полями на форме сообщения в поддержку.")
     void unsuccessfulSendSupportMessage() {
@@ -100,7 +100,7 @@ public class AliRadarTestsEn extends TestBase {
 
     }
 
-    @Test
+//    @Test
     @Order(4)
     @DisplayName("Провекра отправки сообщения в поддержку.")
     void successfulSendSupportMessage() {
@@ -126,7 +126,7 @@ public class AliRadarTestsEn extends TestBase {
 
     }
 
-    @Test
+//    @Test
     @Order(5)
     @DisplayName("Поиск товара и проверка наличия кнопки \"Go to store\" для выбранного товара.")
     void testSearchAndBuyProduct() {
